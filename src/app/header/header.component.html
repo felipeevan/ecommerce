@@ -1,0 +1,32 @@
+<mat-toolbar>
+    <span>Ecommerce Foda</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>search</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="toggleRightSidenav()">
+        <mat-icon matBadge="15" >shopping_cart</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with share icon">
+        <mat-icon>person</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>assignment_ind</mat-icon>
+          <span>Sua conta</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>list</mat-icon>
+            <span>Pedidos</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>help</mat-icon>
+            <span>Ajuda</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Sair</span>
+          </button>      
+      </mat-menu>
+</mat-toolbar>

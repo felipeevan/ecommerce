@@ -7,6 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavDrawerComponent implements OnInit {
 
+
+  cart_items = [
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    ''
+  ]
   constructor() { }
 
   ngOnInit(): void {

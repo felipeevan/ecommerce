@@ -1,0 +1,28 @@
+.cart-tile{
+    margin-bottom: 10px;
+}
+
+
+.cart-tile-img{
+    height: 80px;
+    width: 80px;
+    margin-right: 5px;
+    img{
+        border-radius: 10px;
+        height: 100%;
+        width: -webkit-fill-available;
+        object-fit: cover;
+    }
+}
+
+.button-quanti{
+    button{
+        width: inherit;
+        height: inherit;
+        line-height: inherit;
+    }
+}
+
+.button-quanti button:first-of-type{
+    margin-right: 5px;
+}

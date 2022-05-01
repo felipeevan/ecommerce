@@ -19,6 +19,15 @@
     text-overflow: ellipsis;
 }
 
+::ng-deep .mat-card-image{
+    max-width: 250px;
+    padding: 10px;
+    margin-left: 0px !important;
+}
+
+.categorias-card{
+    max-width: 200px;
+}
 
 ::ng-deep .mat-list .mat-list-item .mat-line{
     word-wrap: break-word;

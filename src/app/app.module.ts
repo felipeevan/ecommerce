@@ -13,6 +13,7 @@ import { LayoutModule } from './layout/layout.module';
 import { AuthModule } from './auth/auth.module';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { AdminConsoleModule } from './admin-console/admin-console.module';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AdminConsoleModule } from './admin-console/admin-console.module';
     TilesModule,
     HomeModule,
     LayoutModule,
+    MatChipsModule
     AuthModule,
     AdminConsoleModule,
   ],

@@ -1,18 +1,75 @@
-<div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%; 
-background-size: cover;background-image: url('https://lojadoscabides.com/wp-content/uploads/2018/09/blur-blurred-background-boutique-1036856-1.jpg');">
+<div class="d-flex flex-column justify-content-center align-items-center background-login" style="height: 100%;">
     <mat-card>
-        <mat-tab-group>
+        <div class="logo">
+            SMDiscos
+        </div>
+        <mat-tab-group mat-align-tabs="center" (selectedTabChange)="resetForm();">
             <mat-tab label="Login">
-                <form>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Email</mat-label>
-                        <input matInput>
-                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                    </mat-form-field>
+                <form class="mt-3 mb-3" [formGroup]="loginForm" #loginNgForm="ngForm" (ngSubmit)="logar()">
+                    <div class="col">
+                        <div class="row g-0">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Email/Login</mat-label>
+                                <input matInput formControlName="login" name="login" required >
+                                <mat-icon matSuffix>email</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="row g-0">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Senha</mat-label>
+                                <input matInput formControlName="senha" name="senha" required minlength="8">
+                                <mat-icon matSuffix>vpn_key</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="row g-0 align">
+                            <button mat-flat-button color="primary" class="botao_amarelo" type="submit">Logar</button>
+                        </div>
+                    </div>
                 </form>
             </mat-tab>
             <mat-tab label="Registro">
-            
+                <form class="mt-3 mb-3" [formGroup]="registroForm" #registroNgForm="ngForm">
+                    <div class="col">
+                        <div class="row g-0">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nome</mat-label>
+                                <input matInput formControlName="nome" name="login" required >
+                                <mat-icon matSuffix>person</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="row g-0">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Email</mat-label>
+                                <input matInput formControlName="email" name="login" required>
+                                <mat-icon matSuffix>email</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="row g-0">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Login</mat-label>
+                                <input matInput formControlName="login" name="login" required>
+                                <mat-icon matSuffix>assignment_ind</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="row g-0">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Senha</mat-label>
+                                <input matInput formControlName="senha" name="login" required>
+                                <mat-icon matSuffix>vpn_key</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="row g-0">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Confirmar Senha</mat-label>
+                                <input matInput formControlName="csenha" name="login" required >
+                                <mat-icon matSuffix>vpn_key</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="row g-0 align">
+                            <button mat-flat-button color="primary" class="botao_amarelo">Registrar</button>
+                        </div>
+                    </div>
+                </form>
             </mat-tab>
           </mat-tab-group>
     </mat-card>

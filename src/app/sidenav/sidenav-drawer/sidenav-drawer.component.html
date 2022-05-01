@@ -3,6 +3,6 @@
         <app-cart-tile *ngFor="let item of cart_items"></app-cart-tile>
     </div>
     <div id="to_cart">
-        <button mat-raised-button color="accent">Ir para o pagamento</button>
+        <button mat-raised-button color="accent" (click)="irAoPagamento()">Ir para o pagamento</button>
     </div>
 </div>

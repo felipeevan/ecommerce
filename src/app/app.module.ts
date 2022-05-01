@@ -11,10 +11,12 @@ import { SidenavModule } from './sidenav/sidenav.module';
 import { TilesModule } from './tiles/tiles.module';
 import { LayoutModule } from './layout/layout.module';
 import { AuthModule } from './auth/auth.module';
+import { PedidosComponent } from './pedidos/pedidos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PedidosComponent,
   ],
   imports: [
     BrowserModule,

@@ -22,10 +22,15 @@
         <div class="flex-fill">
             <mat-card>
                 <div class="row g-3">
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12" *ngFor="let produto of categorias" >
-                        <div style="background: black; height: 100px;;">
-
-                        </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12" *ngFor="let produto of discos" >
+                        <img mat-card-image src="{{produto.capa}}" width="150px">
+                        <mat-card-content>
+                            <h3>{{produto.nome}} - {{produto.artista}}</h3>
+                            <h2>R$ {{produto.preco}}</h2>
+                        </mat-card-content>
+                        <mat-chip-list>
+                            <mat-chip color="primary" selected>{{ categorias[0] }}</mat-chip>                        
+                        </mat-chip-list>
                     </div>
                 </div>
             </mat-card>

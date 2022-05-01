@@ -6,6 +6,8 @@ import { LayoutModule } from '../layout/layout.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatChipsModule} from '@angular/material/chips';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     LayoutModule,
     MatCardModule,
     MatListModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatChipsModule
   ],
   exports:[
     HomeComponent

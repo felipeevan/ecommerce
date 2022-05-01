@@ -1,6 +1,16 @@
-<mat-toolbar class="mat-elevation-z2">
-    <span>Ecommerce Foda</span>
-    <span class="example-spacer"></span>
+<mat-toolbar class="mat-elevation-z">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="toggleMenuSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>SMDiscos</span>
+    <span class="example-spacer ms-3 me-3" >
+      <div class="input-group">
+        <span class="input-group-text" id="search-icon">
+          <mat-icon>search</mat-icon>
+        </span>
+        <input type="text" class="form-control" id="search-input">
+      </div>
+    </span>
     <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with share icon">
       <mat-icon>person</mat-icon>
     </button>
@@ -8,7 +18,7 @@
         <mat-icon matBadge="15" >shopping_cart</mat-icon>
     </button>
     
-
+    
     <mat-menu #menu="matMenu">
         <button mat-menu-item>
           <mat-icon>assignment_ind</mat-icon>

@@ -3,10 +3,12 @@ import { SidenavModule } from './../sidenav/sidenav.module';
 import { DefaultComponent } from './default/default.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AdminDefaultComponent } from './admin-default/admin-default.component';
 
 @NgModule({
   declarations: [
-    DefaultComponent
+    DefaultComponent,
+    AdminDefaultComponent
   ],
   imports: [
     CommonModule,

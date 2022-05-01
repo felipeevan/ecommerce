@@ -16,4 +16,8 @@ export class HeaderComponent implements OnInit {
   toggleRightSidenav() {
     this.sidenav.toggle();
   }
+
+  toggleMenuSidenav() {
+    this.sidenav.toggleMenu();
+  }
 }

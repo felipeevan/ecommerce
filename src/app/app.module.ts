@@ -12,6 +12,7 @@ import { TilesModule } from './tiles/tiles.module';
 import { LayoutModule } from './layout/layout.module';
 import { AuthModule } from './auth/auth.module';
 import { PedidosComponent } from './pedidos/pedidos.component';
+import { AdminConsoleModule } from './admin-console/admin-console.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PedidosComponent } from './pedidos/pedidos.component';
     TilesModule,
     HomeModule,
     LayoutModule,
-    AuthModule
+    AuthModule,
+    AdminConsoleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

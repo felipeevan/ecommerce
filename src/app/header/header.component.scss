@@ -1,7 +1,24 @@
 .example-spacer {
     flex: 1 1 auto;
-  }
+}
+
+$cor_azul: #081f4b;
+$cor_amarela: #fff617;
 
 .mat-toolbar{
-  background: #ffffff;
+  background: $cor_azul;
+  color: white;
+}
+
+
+#search-icon{
+  background-color: $cor_amarela !important;
+}
+
+#search-input{
+  border-left: 0px !important;
+}
+
+#search-input:focus{
+  box-shadow: inherit !important;
 }

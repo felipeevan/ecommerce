@@ -7,15 +7,18 @@
     padding: 0px;
 }
 
+
+.categorias-card{
+    max-width: 200px;
+}
+
+
 ::ng-deep .list-categorias .mat-list-item-content{
     padding: 0px !important;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.categorias-card{
-    max-width: 200px;
-}
 
 ::ng-deep .mat-list .mat-list-item .mat-line{
     word-wrap: break-word;

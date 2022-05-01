@@ -1,3 +1,4 @@
+import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
@@ -8,7 +9,11 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'auth', component: AuthComponent},
-  { path: '**', redirectTo: 'home'} 
+  { path: 'dashboard', component: AdminConsoleComponent},
+
+
+
+  { path: '**', redirectTo: 'home'},
   //{ path: 'login', component: LoginComponent },
 ];
 

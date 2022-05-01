@@ -10,6 +10,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class SidenavComponent implements OnInit {
 
   @ViewChild('drawer', {static: false}) public sidenav!: MatSidenav;
+  @ViewChild('menu', {static: false}) public menu!: MatSidenav;
 
   constructor(private sidenavService: SidenavService) { }
 
@@ -18,5 +19,6 @@ export class SidenavComponent implements OnInit {
 
   ngAfterViewInit(): void {
     this.sidenavService.setSidenav(this.sidenav);
+    this.sidenavService.setSidenavMenu(this.menu);
   }
 }

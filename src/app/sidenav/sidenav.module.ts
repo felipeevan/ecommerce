@@ -8,18 +8,26 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { SidenavService } from './sidenav.service';
 import { SidenavDrawerComponent } from './sidenav-drawer/sidenav-drawer.component';
 import { TilesModule } from '../tiles/tiles.module';
+import { MenuDrawerComponent } from './menu-drawer/menu-drawer.component';
+import {MatListModule} from '@angular/material/list';
+import {MatRippleModule} from '@angular/material/core';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
   declarations: [
       SidenavComponent,
-      SidenavDrawerComponent
+      SidenavDrawerComponent,
+      MenuDrawerComponent
   ],
   imports: [
     CommonModule,
     MatSidenavModule,
     MatButtonModule,
-    TilesModule
+    TilesModule,
+    MatListModule,
+    MatRippleModule,
+    MatIconModule
   ],
   exports:[
     SidenavComponent

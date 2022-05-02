@@ -1,3 +1,9 @@
+$cor_x: #231f20;
+$cor_y: #3d7258;
+$cor_z: #e7d99a;
+$cor_w: #dc696c;
+$cor_t: #3d5ba3;
+
 .row-home{
     margin: 0px;
     height: 100%; width: 100%;
@@ -17,6 +23,11 @@
     padding: 0px !important;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+::ng-deep .mat-chip{
+    background-color: $cor_y !important;
+    
 }
 
 ::ng-deep .mat-card-image{

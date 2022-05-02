@@ -15,6 +15,7 @@ import { PedidosComponent } from './pedidos/pedidos.component';
 import { AdminConsoleModule } from './admin-console/admin-console.module';
 import {MatChipsModule} from '@angular/material/chips';
 import { ProdutoComponent } from './produto/produto.component';
+import { UserconfigModule } from './userconfig/userconfig.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ProdutoComponent } from './produto/produto.component';
     MatChipsModule,
     AuthModule,
     AdminConsoleModule,
+    UserconfigModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

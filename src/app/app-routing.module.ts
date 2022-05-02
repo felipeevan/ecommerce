@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UserconfigComponent } from './userconfig/userconfig.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'auth', component: AuthComponent},
   { path: 'produto', component: ProdutoComponent },
   { path: 'dashboard', component: AdminConsoleComponent},
+  { path: 'config', component: UserconfigComponent },
 
 
 

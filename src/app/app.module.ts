@@ -14,11 +14,13 @@ import { AuthModule } from './auth/auth.module';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { AdminConsoleModule } from './admin-console/admin-console.module';
 import {MatChipsModule} from '@angular/material/chips';
+import { ProdutoComponent } from './produto/produto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PedidosComponent,
+    ProdutoComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,7 @@ import {MatChipsModule} from '@angular/material/chips';
     TilesModule,
     HomeModule,
     LayoutModule,
-    MatChipsModule
+    MatChipsModule,
     AuthModule,
     AdminConsoleModule,
   ],

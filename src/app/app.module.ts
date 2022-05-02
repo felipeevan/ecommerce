@@ -29,7 +29,7 @@ import {MatChipsModule} from '@angular/material/chips';
     TilesModule,
     HomeModule,
     LayoutModule,
-    MatChipsModule
+    MatChipsModule,
     AuthModule,
     AdminConsoleModule,
   ],

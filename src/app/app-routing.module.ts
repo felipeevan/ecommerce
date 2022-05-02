@@ -3,6 +3,7 @@ import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UserconfigComponent } from './userconfig/userconfig.component';
 
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'auth', component: AuthComponent},
   { path: 'dashboard', component: AdminConsoleComponent},
+  { path: 'config', component: UserconfigComponent },
 
 
 

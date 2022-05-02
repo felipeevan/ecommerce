@@ -14,6 +14,7 @@ import { AuthModule } from './auth/auth.module';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { AdminConsoleModule } from './admin-console/admin-console.module';
 import {MatChipsModule} from '@angular/material/chips';
+import { UserconfigComponent } from './userconfig/userconfig.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import {MatChipsModule} from '@angular/material/chips';
     TilesModule,
     HomeModule,
     LayoutModule,
-    MatChipsModule
+    MatChipsModule,
     AuthModule,
     AdminConsoleModule,
   ],

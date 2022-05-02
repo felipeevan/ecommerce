@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class HomeComponent implements OnInit {
   categorias = [
-    'Carros',
+    'Anos 79',
     'Motos',
     'Brinquedos',
     'aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa',

@@ -2,17 +2,22 @@
     flex: 1 1 auto;
 }
 
-$cor_azul: #081f4b;
-$cor_amarela: #fff617;
+$cor_x: #231f20;
+$cor_y: #3d7258;
+$cor_z: #e7d99a;
+$cor_w: #dc696c;
+$cor_t: #3d5ba3;
+
 
 .mat-toolbar{
-  background: $cor_azul;
-  color: white;
+  background: $cor_z;
+  color: $cor_x;
 }
 
 
 #search-icon{
-  background-color: $cor_amarela !important;
+  background-color: $cor_t !important;
+  color: white;
 }
 
 #search-input{

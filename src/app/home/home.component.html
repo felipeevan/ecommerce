@@ -12,24 +12,26 @@
           </mat-expansion-panel>
     </div>
     <div class="d-flex flex-row row-home">
-        <div class="me-2 categorias-card">
+        <!-- <div class="me-2 categorias-card">
             <mat-card>
                 <mat-list role="list" class="list-categorias">
                     <mat-list-item role="listitem" *ngFor="let categoria of categorias">{{categoria}}</mat-list-item>
                 </mat-list>
             </mat-card>
-        </div>
+        </div> -->
         <div class="flex-fill">
             <mat-card>
                 <div class="row g-3">
                     <div class="col-lg-3 col-md-4 col-sm-6 col-12" *ngFor="let produto of discos" >
-                        <img mat-card-image src="{{produto.capa}}" width="150px">
+                        <div class="justify-content-center">
+                            <img mat-card-image src="{{produto.capa}}" width="150px">
+                        </div>
                         <mat-card-content>
                             <h3>{{produto.nome}} - {{produto.artista}}</h3>
                             <h2>R$ {{produto.preco}}</h2>
                         </mat-card-content>
                         <mat-chip-list>
-                            <mat-chip color="primary" selected>{{ categorias[0] }}</mat-chip>                        
+                            <mat-chip selected>{{ categorias[0] }}</mat-chip>                        
                         </mat-chip-list>
                     </div>
                 </div>

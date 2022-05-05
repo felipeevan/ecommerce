@@ -19,7 +19,7 @@ import {MatChipsModule} from '@angular/material/chips';
     MatCardModule,
     MatListModule,
     MatExpansionModule,
-    MatChipsModule
+    MatChipsModule,
   ],
   exports:[
     HomeComponent

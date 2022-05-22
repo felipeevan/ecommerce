@@ -1,0 +1,17 @@
+<mat-card style="height: 100%">
+    <div class="d-flex flex-column" style="height: 100%;">
+        <img class="produto-card-img" src="{{data.capa}}">
+        <mat-card-content>
+            <div class="d-flex flex-column justify-content-between" style="height: 100%;">
+                <div>
+                    <div class="nome-produto">{{data.nome}}</div>
+                    <div class="artista-produto">{{data.artista}}</div>
+                </div>
+                <div class="preco-produto">R$ {{data.preco}}</div>
+            </div>
+        </mat-card-content>
+        <mat-chip-list>
+            <mat-chip *ngFor="let categoria of data.categorias" >{{categoria}}</mat-chip>
+        </mat-chip-list>
+    </div>
+</mat-card>

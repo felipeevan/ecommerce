@@ -1,3 +1,4 @@
+import { CepApiService } from './services/cep.service';
 import { HomeModule } from './home/home.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,7 +16,8 @@ import { PedidosComponent } from './pedidos/pedidos.component';
 import { AdminConsoleModule } from './admin-console/admin-console.module';
 import {MatChipsModule} from '@angular/material/chips';
 import { ProdutoComponent } from './produto/produto.component';
-import { UserconfigModule } from './userconfig/userconfig.module';
+import { UserConfigModule } from './userconfig/userconfig.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,9 +37,13 @@ import { UserconfigModule } from './userconfig/userconfig.module';
     MatChipsModule,
     AuthModule,
     AdminConsoleModule,
-    UserconfigModule,
+    UserConfigModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    CepApiService,
+
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -4,11 +4,6 @@ $cor_z: #e7d99a;
 $cor_w: #dc696c;
 $cor_t: #3d5ba3;
 
-.mat-card{
-    padding: 0 16px;
-    width: 400px;
-}
-
 .logo{
     display: block;
     margin-left: auto;
@@ -38,4 +33,26 @@ $cor_t: #3d5ba3;
 ::ng-deep .botao_amarelo{
   background-color: $cor_t !important;
   color: black !important;
+}
+
+.row-home{
+    margin: 0px;
+    height: 100%; width: 100%;
+}
+
+mat-card{
+    width: 100% !important;
+}
+
+::ng-deep .mat-form-field{
+    width: 100% !important;
+}
+
+::ng-deep .botao_amarelo{
+    background-color: #fff617 !important;
+    color: black !important;
+}
+
+::ng-deep .botao_amarelo.mat-button-disabled{
+    opacity: 0.7;
 }

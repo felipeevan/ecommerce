@@ -2,7 +2,8 @@
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="toggleMenuSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span>SMDiscos</span>
+    <span style="font-size: 20px;
+    line-height: 20px;">SMDiscos</span>
     <span class="example-spacer ms-3 me-3" >
       <div class="input-group">
         <span class="input-group-text" id="search-icon">
@@ -20,7 +21,7 @@
     
     
     <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item (click)="navigateTo('config')">
           <mat-icon>assignment_ind</mat-icon>
           <span>Sua conta</span>
         </button>

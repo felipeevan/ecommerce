@@ -25,11 +25,6 @@ $cor_t: #3d5ba3;
     text-overflow: ellipsis;
 }
 
-::ng-deep .mat-chip{
-    background-color: $cor_y !important;
-    
-}
-
 ::ng-deep .mat-card-image{
     max-width: 250px;
     padding: 10px;
@@ -61,3 +56,6 @@ $cor_t: #3d5ba3;
     }
 }
 
+.row-menu{
+    padding-bottom: 12px !important;
+}

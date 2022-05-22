@@ -1,3 +1,4 @@
+import { TilesModule } from './../tiles/tiles.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
@@ -20,6 +21,7 @@ import {MatChipsModule} from '@angular/material/chips';
     MatListModule,
     MatExpansionModule,
     MatChipsModule,
+    TilesModule,
   ],
   exports:[
     HomeComponent

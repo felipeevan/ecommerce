@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LegendPosition } from '@swimlane/ngx-charts';
+import { CategoriaDialogComponent } from '../tiles/categoria-dialog/categoria-dialog.component';
 import { ConfirmDialogComponent } from '../tiles/confirm-dialog/confirm-dialog.component';
 import { ProdutoDialogComponent } from '../tiles/produto-dialog/produto-dialog.component';
 
@@ -149,4 +150,37 @@ export class AdminConsoleComponent implements OnInit {
     });
   }
 
+
+  addCategoriaModal(){
+    const dialogRef = this.dialog.open(CategoriaDialogComponent, {
+      width: "600px",
+      data: {
+        'edit': false
+      }
+    });
+  }
+
+  editCategoriaModal(categoria: any){
+    const dialogRef = this.dialog.open(CategoriaDialogComponent, {
+      width: "600px",
+      data: {
+        'edit': true,
+        'categoria': categoria
+      }
+    });
+  }
+
+  excluirCategoria(): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "400px",
+      data: {
+        'title': "Deseja excluir?",
+        'message': "Voce quer mesmo excluir esse item?"
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      console.log(dialogResult);
+    });
+  }
 }

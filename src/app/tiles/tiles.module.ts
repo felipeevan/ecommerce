@@ -10,6 +10,10 @@ import { ProdutoDialogComponent } from './produto-dialog/produto-dialog.componen
 import { ProdutoTileComponent } from './produto-tile/produto-tile.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
+import { CategoriaDialogComponent } from './categoria-dialog/categoria-dialog.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +21,8 @@ import {MatChipsModule} from '@angular/material/chips';
     CartTileComponent,
     ConfirmDialogComponent,
     ProdutoDialogComponent,
-    ProdutoTileComponent
+    ProdutoTileComponent,
+    CategoriaDialogComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +30,10 @@ import {MatChipsModule} from '@angular/material/chips';
     MatIconModule,
     MatDialogModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   exports:[
     CartTileComponent,

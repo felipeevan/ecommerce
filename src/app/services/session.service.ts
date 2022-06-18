@@ -1,9 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class SessionService {
 
-    constructor() {}
+    constructor(private http: HttpClient) {}
 
     saveCliente(userinfo: any){
       sessionStorage.setItem('user', JSON.stringify(userinfo))
@@ -29,6 +30,8 @@ export class SessionService {
       sessionStorage.removeItem('logged')
       sessionStorage.removeItem('admin')
       document.location.reload()
+      this.http.get(`/smdecommerce/Logout`);
+      
     }
 
     public setUserInfo(userinfo: any) {

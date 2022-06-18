@@ -42,8 +42,13 @@ export class AdminloginComponent implements OnInit {
             horizontalPosition: "end",
             verticalPosition: "top",
           })
-          this.sessionService.saveAdmin(data)
-          this.router.navigate(['/dashboard']);
+          if(response.tipoSessao==1){
+            this.sessionService.saveAdmin(data)
+            this.router.navigate(['/dashboard']);
+          }else{
+            this.sessionService.saveCliente(data)
+            this.router.navigate(['/home']);
+          }
         },
         (error) =>{
           this.snackBar.open(error(), "Ok",{

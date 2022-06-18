@@ -77,8 +77,13 @@ export class AuthComponent implements OnInit {
           })
           this.loginForm.reset()
           this.formLogin.resetForm();
-          this.sessionService.saveCliente(data)
-          this.router.navigate(['/home']);
+          if(response.tipoSessao==1){
+            this.sessionService.saveAdmin(data)
+            this.router.navigate(['/dashboard']);
+          }else{
+            this.sessionService.saveCliente(data)
+            this.router.navigate(['/home']);
+          }
         },
         (error) =>{
           this.snackBar.open(error(), "Ok",{

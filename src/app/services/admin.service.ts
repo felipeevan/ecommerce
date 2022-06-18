@@ -14,12 +14,7 @@ export class AdminService {
     constructor(private http: HttpClient) { }
 
     loginAdmin(body: any): Observable<any>{
-      let bodyString = "?";
-      Object.keys(body).forEach(element => {
-        bodyString+=element+"="+body[element].toString()+"&"
-      });
-      bodyString = bodyString.substring(0, bodyString.length-1)
-      return this.http.post(`/smdecommerce/LoginCliente`+bodyString, {})
+      return this.http.post(`/smdecommerce/LoginCliente`, body)
         .pipe(retry(1), catchError(this.handleError));
     }
 
@@ -39,4 +34,6 @@ export class AdminService {
         return errorMessage;
       });
     }
+
+      
 }

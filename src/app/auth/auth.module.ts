@@ -9,10 +9,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { ClienteService } from '../services/cliente.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { AdminService } from '../services/admin.service';
 
 @NgModule({
   declarations: [
-    AuthComponent
+    AuthComponent,
+    AdminloginComponent
   ],
   imports: [
     CommonModule,
@@ -22,10 +27,15 @@ import {MatButtonModule} from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ],
   exports:[
     AuthComponent
   ],
+  providers:[
+    ClienteService,
+    AdminService
+  ]
 })
 export class AuthModule { }

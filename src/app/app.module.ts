@@ -18,6 +18,11 @@ import {MatChipsModule} from '@angular/material/chips';
 import { ProdutoComponent } from './produto/produto.component';
 import { UserConfigModule } from './userconfig/userconfig.module';
 import { HttpClientModule } from '@angular/common/http';
+import { SessionService } from './services/session.service';
+import { AuthAutorize } from './auth-autorize.service';
+import { AuthAdminGuard } from './auth-admin-guard.service';
+import { AuthClienteGuard } from './auth-cliente-guard.service';
+import { AuthAdminNegate } from './auth-admin-negate.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,11 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     CepApiService,
-
+    SessionService,
+    AuthAutorize,
+    AuthClienteGuard,
+    AuthAdminGuard,
+    AuthAdminNegate
   ],
   bootstrap: [AppComponent],
 })

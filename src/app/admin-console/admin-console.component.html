@@ -53,11 +53,49 @@
 
                 <div class="col-12">
                     <mat-card>
-                        <div class="button-container">
+                        <mat-card-title class="d-flex justify-content-between align-items-center">
+                            Categorias
                             <button mat-raised-button color="primary" (click)="addModal()">
-                              Adicionar Item
+                                Adicionar Item
                             </button>
-                        </div>
+                        </mat-card-title>
+                          
+                        <table mat-table [dataSource]="categorias">
+                            <ng-container *ngFor="let column of columnsCategorias" [matColumnDef]="column.name">
+                                <th mat-header-cell *matHeaderCellDef>
+                                    {{column.title}}
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                    {{row[column.name]}}
+                                </td>
+                            </ng-container >
+
+                            <ng-container matColumnDef="star">
+                                <th mat-header-cell *matHeaderCellDef>Ações</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-icon-button>
+                                        <mat-icon>edit</mat-icon>
+                                    </button>
+                                    <button mat-icon-button (click)="excluir()">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumnsCategorias"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumnsCategorias;"></tr>
+                        </table>
+                    </mat-card>
+                </div>
+
+                <div class="col-12">
+                    <mat-card>
+                        <mat-card-title class="d-flex justify-content-between align-items-center">
+                            Produtos
+                            <button mat-raised-button color="primary" (click)="addModal()">
+                                Adicionar Item
+                            </button>
+                        </mat-card-title>
                           
                         <table mat-table [dataSource]="discos">
                             <ng-container *ngFor="let column of columns" [matColumnDef]="column.name">

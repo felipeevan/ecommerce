@@ -1,41 +1,57 @@
 <mat-toolbar class="mat-elevation-z">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="toggleMenuSidenav()">
+    <button *ngIf="!isAdmin" 
+     mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="toggleMenuSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
     <span style="font-size: 20px;
     line-height: 20px;">SMDiscos</span>
     <span class="example-spacer ms-3 me-3" >
-      <div class="input-group">
+      <div class="input-group" *ngIf="!isAdmin">
         <span class="input-group-text" id="search-icon">
           <mat-icon>search</mat-icon>
         </span>
         <input type="text" class="form-control" id="search-input">
       </div>
     </span>
-    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with share icon">
+    <button mat-icon-button class="example-icon" 
+     [matMenuTriggerFor]="menu" aria-label="Example icon-button with share icon">
       <mat-icon>person</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="toggleRightSidenav()">
+    <button *ngIf="!isAdmin" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="toggleRightSidenav()">
         <mat-icon matBadge="15" >shopping_cart</mat-icon>
     </button>
     
     
     <mat-menu #menu="matMenu">
+      <span *ngIf="logado && !isAdmin">
         <button mat-menu-item (click)="navigateTo('config')">
           <mat-icon>assignment_ind</mat-icon>
           <span>Sua conta</span>
         </button>
         <button mat-menu-item>
-            <mat-icon>list</mat-icon>
-            <span>Pedidos</span>
-          </button>
-          <button mat-menu-item>
-            <mat-icon>help</mat-icon>
-            <span>Ajuda</span>
-          </button>
-          <button mat-menu-item>
-            <mat-icon>exit_to_app</mat-icon>
-            <span>Sair</span>
-          </button>      
-      </mat-menu>
+          <mat-icon>list</mat-icon>
+          <span>Pedidos</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>help</mat-icon>
+          <span>Ajuda</span>
+        </button>
+        <button mat-menu-item (click)="deslogar()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Sair</span>
+        </button>
+      </span>  
+      <span *ngIf="logado && isAdmin">
+        <button mat-menu-item (click)="deslogar()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Sair</span>
+        </button>
+      </span>  
+      <span *ngIf="!logado">
+        <button mat-menu-item (click)="navigateTo('auth')">
+          <mat-icon>assignment_ind</mat-icon>
+          <span>Entrar/Registrar</span>
+        </button>
+      </span>    
+    </mat-menu>
 </mat-toolbar>

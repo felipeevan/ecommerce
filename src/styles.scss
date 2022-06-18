@@ -36,3 +36,17 @@ button:focus {
     border-width: 1px !important;
   }
 
+
+  .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start, .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end, .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap{
+    border-width: 2px !important;
+  }
+
+
+  .mat-snack-bar-container{
+    background: #ffffff;
+    color: #231f20
+  }
+
+  .mat-simple-snackbar-action{
+    color: #3d5ba3
+  }

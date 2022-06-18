@@ -2,6 +2,7 @@ import { CepApiService } from './../services/cep.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { SessionService } from '../services/session.service';
 
 @Component({
   selector: 'app-userconfig',
@@ -23,18 +24,14 @@ export class UserconfigComponent implements OnInit {
     bairro: new FormControl('', Validators.required),
     complemento: new FormControl(''), 
   })
-
-
-  userOriginalInfo = {
-    'nome': 'Fulando de Tal',
-    'email': 'fulanindoidin@email.com',
-    'login': 'xXfulaninXx'
-  }
   
-  constructor(public dialog: MatDialog, private cepService: CepApiService) {
+  constructor(public dialog: MatDialog, private cepService: CepApiService, private sessionService: SessionService ) {
   }
+
+  user = {}
 
   ngOnInit(): void {
+    this.user = this.sessionService.getUserInfo()
     this.setInfosOriginal()
   }
 
@@ -46,9 +43,10 @@ export class UserconfigComponent implements OnInit {
   }
 
   setInfosOriginal(){
-    this.formUser.controls['nome'].setValue(this.userOriginalInfo.nome)
-    this.formUser.controls['email'].setValue(this.userOriginalInfo.email)
-    this.formUser.controls['login'].setValue(this.userOriginalInfo.login)
+    let userinfo: any = this.user
+    this.formUser.controls['nome'].setValue(userinfo?.nome)
+    this.formUser.controls['email'].setValue(userinfo?.email)
+    this.formUser.controls['login'].setValue(userinfo?.login)
     this.formUser.controls['senha'].setValue('********')
   }
 

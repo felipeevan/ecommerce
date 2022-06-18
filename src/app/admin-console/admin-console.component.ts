@@ -28,6 +28,8 @@ export class AdminConsoleComponent implements OnInit {
     },
   ];
 
+  categorias = []
+
   discos = [
     {
       'nome': 'Golden Hour',
@@ -80,6 +82,13 @@ export class AdminConsoleComponent implements OnInit {
     },
   ]
 
+  columnsCategorias = [
+    {
+      'name': 'nome',
+      'title': 'Nome'
+    },
+  ]
+
   columns = [
     {
       'name': 'nome',
@@ -95,7 +104,10 @@ export class AdminConsoleComponent implements OnInit {
     },
   ]
 
+  
+
   displayedColumns = this.columns.map(c => c.name);
+  displayedColumnsCategorias = this.columnsCategorias.map(c => c.name);
 
 
   constructor(public dialog: MatDialog) { }
@@ -108,7 +120,6 @@ export class AdminConsoleComponent implements OnInit {
     const dialogRef = this.dialog.open(ProdutoDialogComponent, {
       width: "600px",
       data: {
-        'title': "Deseja excluir?",
         'edit': false
       }
     });
@@ -118,9 +129,7 @@ export class AdminConsoleComponent implements OnInit {
     const dialogRef = this.dialog.open(ProdutoDialogComponent, {
       width: "600px",
       data: {
-        'title': "Deseja excluir?",
         'edit': true,
-        'id': produto.id??"0",
         'produto': produto
       }
     });

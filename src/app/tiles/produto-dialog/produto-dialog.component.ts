@@ -15,7 +15,7 @@ export class ProdutoDialogComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<ProdutoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
     this.title = data.edit?"Editar Produto": "Novo Produto";
-    this.id = data.edit?data.id:null;
+    this.id = data.edit?data.produto.id:null;
     this.produto = data.edit?data.produto:null;
     this.editMode = data.edit;
   }

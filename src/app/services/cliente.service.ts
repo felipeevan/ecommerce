@@ -14,28 +14,32 @@ export class ClienteService {
     constructor(private http: HttpClient) { }
 
     registrarCliente(body: any): Observable<any>{
-        let bodyString = "?";
-        Object.keys(body).forEach(element => {
-            bodyString+=element+"="+body[element].toString()+"&"
-        });
-        bodyString = bodyString.substring(0, bodyString.length-1)
-
-        return this.http.get(`/smdecommerce/NovoCliente`+bodyString)
+        return this.http.post(`/smdecommerce/NovoCliente`, body)
         .pipe(retry(1), catchError(this.handleError));
     }
 
     loginCliente(body: any): Observable<any>{
-      // let bodyString = "?";
-      // Object.keys(body).forEach(element => {
-      //   bodyString+=element+"="+body[element].toString()+"&"
-      // });
-      return this.http.post(`/smdecommerce/LoginCliente`, body)
+      return this.http.post(`/smdecommerce/Login`, body)
         .pipe(retry(1), catchError(this.handleError));
+    }
+
+    editarCliente(body: any): Observable<any>{
+      return this.http.post(`/smdecommerce/AtualizarCliente`, body)
+        .pipe(retry(1), catchError(this.handleError));
+    }
+
+    listarProduto(): Observable<any>{
+      return this.http.get(`/smdecommerce/ListarProdutosEmEstoque`)
+        .pipe(retry(1), catchError(this.handleError));
+    }
+
+    excluirCliente(): Observable<any>{
+      return this.http.post(`/smdecommerce/ExcluirCliente`, {})
+      .pipe(retry(1), catchError(this.handleError));
     }
 
     handleError(error: any) {
       let errorMessage = '';
-      console.log(error.error.message!=null)
       if (error.error instanceof ErrorEvent) {
         // Get client-side error
         errorMessage = error.error.message;

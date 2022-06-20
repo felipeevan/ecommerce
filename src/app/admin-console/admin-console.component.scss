@@ -17,6 +17,12 @@ table {
     white-space: nowrap;
 }
 
+.mat-column-foto, .mat-header-foto {
+    flex: none;
+    width: 80px;
+    white-space: nowrap;
+}
+
 .button-container{
     padding-bottom: 8px;
     text-align: end;

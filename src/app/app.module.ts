@@ -23,6 +23,7 @@ import { AuthAutorize } from './auth-autorize.service';
 import { AuthAdminGuard } from './auth-admin-guard.service';
 import { AuthClienteGuard } from './auth-cliente-guard.service';
 import { AuthAdminNegate } from './auth-admin-negate.service';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,9 @@ import { AuthAdminNegate } from './auth-admin-negate.service';
     AuthAutorize,
     AuthClienteGuard,
     AuthAdminGuard,
-    AuthAdminNegate
+    AuthAdminNegate,
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 3000}}
+
   ],
   bootstrap: [AppComponent],
 })

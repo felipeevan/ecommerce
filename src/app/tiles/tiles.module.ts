@@ -14,7 +14,8 @@ import { CategoriaDialogComponent } from './categoria-dialog/categoria-dialog.co
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {TextFieldModule} from '@angular/cdk/text-field';
+import { TwoDigitDecimaNumberDirective } from './produto-dialog/float.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ConfirmDialogComponent,
     ProdutoDialogComponent,
     ProdutoTileComponent,
-    CategoriaDialogComponent
+    CategoriaDialogComponent,
+    TwoDigitDecimaNumberDirective
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatChipsModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TextFieldModule,
   ],
   exports:[
     CartTileComponent,

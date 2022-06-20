@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { LegendPosition } from '@swimlane/ngx-charts';
+import { AdminService } from '../services/admin.service';
 import { CategoriaDialogComponent } from '../tiles/categoria-dialog/categoria-dialog.component';
 import { ConfirmDialogComponent } from '../tiles/confirm-dialog/confirm-dialog.component';
 import { ProdutoDialogComponent } from '../tiles/produto-dialog/produto-dialog.component';
@@ -31,61 +33,11 @@ export class AdminConsoleComponent implements OnInit {
 
   categorias = []
 
-  discos = [
-    {
-      'nome': 'Golden Hour',
-      'artista': 'Kacey Musgraves',
-      'preco': 51.90,
-      'capa': 'https://m.media-amazon.com/images/I/A11LiwhOyhL._AC_SL1500_.jpg'
-    },
-
-    {
-      'nome': '1989 Deluxe',
-      'artista': 'Taylor Swift',
-      'preco': 49.50,
-      'capa': 'https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/1/5/0/9/416201569604251.jpg'
-    },
-    {
-      'nome': 'Born To Die - Paradise Edition',
-      'artista': 'Lana Del Rey',
-      'preco': 47.80,
-      'capa':'https://m.media-amazon.com/images/I/61VvC2SEPsL._AC_SX679_.jpg'
-    },
-    {
-      'nome': '30',
-      'artista': 'Adele',
-      'preco': 31.90,
-      'capa':'https://m.media-amazon.com/images/I/71-llhQmneL._AC_SX425_.jpg'
-    },
-    {
-      'nome': 'Unlimited Love',
-      'artista': 'Red Hot Chili Peppers',
-      'preco': 31.90,
-      'capa':'https://m.media-amazon.com/images/I/61Ky4cvAuYL._AC_SY450_.jpg'
-    },
-    {
-      'nome': 'Bang',
-      'artista': 'Anitta',
-      'preco': 18.90,
-      'capa':'https://images-americanas.b2w.io/produtos/01/00/item/125484/5/125484512_1GG.jpg'
-    },
-    {
-      'nome': 'Let Go',
-      'artista': 'Avril Lavigne',
-      'preco': 38.90,
-      'capa':'https://m.media-amazon.com/images/I/715rxIQNZTL._AC_SL1500_.jpg'
-    },
-    {
-      'nome': 'Scorpion',
-      'artista': 'Drake',
-      'preco': 45.90,
-      'capa':'https://m.media-amazon.com/images/I/71SBdRjtrVL._AC_SY355_.jpg'
-    },
-  ]
+  discos = []
 
   columnsCategorias = [
     {
-      'name': 'nome',
+      'name': 'descricao',
       'title': 'Nome'
     },
   ]
@@ -96,8 +48,12 @@ export class AdminConsoleComponent implements OnInit {
       'title': 'Nome'
     },
     {
-      'name': 'artista',
-      'title': 'Artista'
+      'name': 'autor',
+      'title': 'Autor'
+    },
+    {
+      'name': 'quantidade',
+      'title': 'Quantidade'
     },
     {
       'name': 'preco',
@@ -105,16 +61,36 @@ export class AdminConsoleComponent implements OnInit {
     },
   ]
 
-  
-
   displayedColumns = this.columns.map(c => c.name);
   displayedColumnsCategorias = this.columnsCategorias.map(c => c.name);
 
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public adminService: AdminService,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.displayedColumns = [...this.displayedColumns, 'star'];
+    this.displayedColumns = ['foto', ...this.displayedColumns, 'star'];
+    this.displayedColumnsCategorias = [...this.displayedColumnsCategorias, 'star'];
+    this.setListCategorias()
+    this.setListProdutos()
+  }
+
+  setListCategorias(){
+    this.adminService.listarCategoria().toPromise().then(
+      (response) => {
+        let data = JSON.parse(response.data);
+        this.categorias = data;
+      }
+    )
+  }
+
+  setListProdutos(){
+    this.adminService.listarProduto().toPromise().then(
+      (response) => {
+        let data = JSON.parse(response.data);
+        this.discos = data;
+      }
+    )
   }
 
   addModal(){
@@ -122,6 +98,12 @@ export class AdminConsoleComponent implements OnInit {
       width: "600px",
       data: {
         'edit': false
+      }
+    });
+    
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if(dialogResult===true){
+        this.setListProdutos()
       }
     });
   }
@@ -134,9 +116,15 @@ export class AdminConsoleComponent implements OnInit {
         'produto': produto
       }
     });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if(dialogResult===true){
+        this.setListProdutos()
+      }
+    });
   }
 
-  excluir(): void {
+  excluir(id: any): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       maxWidth: "400px",
       data: {
@@ -146,7 +134,23 @@ export class AdminConsoleComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(dialogResult => {
-      console.log(dialogResult);
+      if(dialogResult){
+        this.adminService.excluirProduto(id).toPromise().then(
+          (_) => {
+            this.snackBar.open("Deletado com sucesso", "Ok",{
+              horizontalPosition: "end",
+              verticalPosition: "top",
+            })
+            this.setListProdutos()
+          },
+          (error) =>{
+            this.snackBar.open(error(), "Ok",{
+              horizontalPosition: "end",
+              verticalPosition: "top",
+            })
+          }
+        )
+      }
     });
   }
 
@@ -156,6 +160,12 @@ export class AdminConsoleComponent implements OnInit {
       width: "600px",
       data: {
         'edit': false
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if(dialogResult===true){
+        this.setListCategorias()
       }
     });
   }
@@ -168,9 +178,14 @@ export class AdminConsoleComponent implements OnInit {
         'categoria': categoria
       }
     });
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if(dialogResult===true){
+        this.setListCategorias()
+      }
+    });
   }
 
-  excluirCategoria(): void {
+  excluirCategoria(id: any): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       maxWidth: "400px",
       data: {
@@ -180,7 +195,23 @@ export class AdminConsoleComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(dialogResult => {
-      console.log(dialogResult);
+      if(dialogResult){
+        this.adminService.excluirCategoria(id).toPromise().then(
+          (_) => {
+            this.snackBar.open("Deletado com sucesso", "Ok",{
+              horizontalPosition: "end",
+              verticalPosition: "top",
+            })
+            this.setListCategorias()
+          },
+          (error) =>{
+            this.snackBar.open(error(), "Ok",{
+              horizontalPosition: "end",
+              verticalPosition: "top",
+            })
+          }
+        )
+      }
     });
   }
 }

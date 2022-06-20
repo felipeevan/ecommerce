@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./produto.component.scss']
 })
 export class ProdutoComponent implements OnInit {
+
   categorias = [
     'Carros',
     'Motos',

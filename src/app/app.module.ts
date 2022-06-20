@@ -2,6 +2,9 @@ import { CepApiService } from './services/cep.service';
 import { HomeModule } from './home/home.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,17 +26,20 @@ import { AuthAutorize } from './auth-autorize.service';
 import { AuthAdminGuard } from './auth-admin-guard.service';
 import { AuthClienteGuard } from './auth-cliente-guard.service';
 import { AuthAdminNegate } from './auth-admin-negate.service';
+import { DetalhesprodutoComponent } from './detalhesproduto/detalhesproduto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PedidosComponent,
     ProdutoComponent,
+    DetalhesprodutoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatButtonModule,
     HeaderModule,
     SidenavModule,
     TilesModule,
@@ -43,7 +49,9 @@ import { AuthAdminNegate } from './auth-admin-negate.service';
     AuthModule,
     AdminConsoleModule,
     UserConfigModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule,
+    MatDividerModule,
   ],
   providers: [
     CepApiService,

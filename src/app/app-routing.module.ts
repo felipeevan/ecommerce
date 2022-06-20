@@ -21,9 +21,8 @@ const routes: Routes = [
   { path: 'produto', component: ProdutoComponent, canActivate:[AuthAdminNegate]},
   { path: 'dashboard', component: AdminConsoleComponent, canActivate: [AuthAdminGuard]},
   { path: 'config', component: UserconfigComponent, canActivate: [AuthClienteGuard]},
-  { path: 'detalhesproduto', component: DetalhesprodutoComponent, canActivate: [AuthClienteGuard]},
-
-  { path: '**', redirectTo: 'home'},
+  { path: 'detalhesproduto', component: DetalhesprodutoComponent, canActivate: [AuthAdminNegate]},
+  { path: '**', redirectTo: 'home'}, 
   //{ path: 'login', component: LoginComponent },
 ];
 

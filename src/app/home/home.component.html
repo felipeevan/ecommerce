@@ -1,11 +1,30 @@
 <app-layout-default>
+    <!-- <div class="categorias-menu">
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Clique para expandir o menu
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-list role="list" class="list-categorias">
+                <mat-list-item role="listitem" *ngFor="let categoria of categorias">{{categoria}}</mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
+    </div> -->
     <div class="d-flex flex-row row-home">
+        <!-- <div class="me-2 categorias-card">
+            <mat-card>
+                <mat-list role="list" class="list-categorias">
+                    <mat-list-item role="listitem" *ngFor="let categoria of categorias">{{categoria}}</mat-list-item>
+                </mat-list>
+            </mat-card>
+        </div> -->
         <div class="flex-fill">
-            <div class="row g-3 align-items-stretch row-menu">
-                <div class="col-lg-3 col-md-4 col-sm-6 col-12" *ngFor="let produto of discos" >
-                    <app-produto-tile [data]="produto"></app-produto-tile>
+                <div class="row g-3 align-items-stretch row-menu">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12" *ngFor="let produto of discos" (click)="navigateTo('detalhesproduto')" >
+                        <app-produto-tile [data]="produto"></app-produto-tile>
+                    </div>
                 </div>
-            </div>
         </div>
     </div>
 </app-layout-default>

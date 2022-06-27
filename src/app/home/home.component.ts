@@ -35,4 +35,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate([path]);
   }
 
+  viewDetalheProduto(produto: any){
+    this.router.navigate(['detalhesproduto'], { queryParams: { id: produto.id } },);
+  }
+
 }

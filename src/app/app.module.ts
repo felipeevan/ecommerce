@@ -18,7 +18,6 @@ import { AuthModule } from './auth/auth.module';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { AdminConsoleModule } from './admin-console/admin-console.module';
 import {MatChipsModule} from '@angular/material/chips';
-import { ProdutoComponent } from './produto/produto.component';
 import { UserConfigModule } from './userconfig/userconfig.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SessionService } from './services/session.service';
@@ -27,12 +26,13 @@ import { AuthAdminGuard } from './auth-admin-guard.service';
 import { AuthClienteGuard } from './auth-cliente-guard.service';
 import { AuthAdminNegate } from './auth-admin-negate.service';
 import { DetalhesprodutoComponent } from './detalhesproduto/detalhesproduto.component';
+import { PedidosAdminModule } from './pedidosadmin/pedidosadmin.module';
+import { PedidosClienteModule } from './pedidoscliente/pedidoscliente.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     PedidosComponent,
-    ProdutoComponent,
     DetalhesprodutoComponent,
   ],
   imports: [
@@ -52,6 +52,8 @@ import { DetalhesprodutoComponent } from './detalhesproduto/detalhesproduto.comp
     HttpClientModule,
     MatIconModule,
     MatDividerModule,
+    PedidosAdminModule,
+    PedidosClienteModule
   ],
   providers: [
     CepApiService,

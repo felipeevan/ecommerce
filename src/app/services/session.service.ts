@@ -7,39 +7,39 @@ export class SessionService {
     constructor(private http: HttpClient) {}
 
     saveCliente(userinfo: any){
-      sessionStorage.setItem('user', JSON.stringify(userinfo))
-      sessionStorage.setItem('logged', 'true')
+      localStorage.setItem('user', JSON.stringify(userinfo))
+      localStorage.setItem('logged', 'true')
     }
 
     saveAdmin(userinfo: any){
-      sessionStorage.setItem('user', JSON.stringify(userinfo))
-      sessionStorage.setItem('logged', 'true')
-      sessionStorage.setItem('admin', 'true')
+      localStorage.setItem('user', JSON.stringify(userinfo))
+      localStorage.setItem('logged', 'true')
+      localStorage.setItem('admin', 'true')
     }
 
     isLogged(): boolean{
-      return sessionStorage.getItem('logged')==='true';
+      return localStorage.getItem('logged')==='true';
     }
 
     isAdmin(): boolean{
-      return sessionStorage.getItem('admin')==='true';
+      return localStorage.getItem('admin')==='true';
     }
 
     deslogar(){
-      sessionStorage.removeItem('user')
-      sessionStorage.removeItem('logged')
-      sessionStorage.removeItem('admin')
+      localStorage.removeItem('user')
+      localStorage.removeItem('logged')
+      localStorage.removeItem('admin')
       document.location.reload()
       this.http.get(`/smdecommerce/Logout`);
       
     }
 
     public setUserInfo(userinfo: any) {
-      sessionStorage.setItem('user', JSON.stringify(userinfo))
+      localStorage.setItem('user', JSON.stringify(userinfo))
     }
     
     public getUserInfo(){
-      let userinfo: string | null = sessionStorage.getItem('user')
+      let userinfo: string | null = localStorage.getItem('user')
 
       if(userinfo==null){
         return null

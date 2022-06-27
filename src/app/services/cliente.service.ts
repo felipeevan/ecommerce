@@ -38,6 +38,11 @@ export class ClienteService {
       .pipe(retry(1), catchError(this.handleError));
     }
 
+    getProdutoById(id: any): Observable<any>{
+      return this.http.post(`/smdecommerce/ObterProduto`, {"id": id})
+      .pipe(retry(1), catchError(this.handleError));    
+    }
+
     handleError(error: any) {
       let errorMessage = '';
       if (error.error instanceof ErrorEvent) {

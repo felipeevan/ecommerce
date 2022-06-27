@@ -2,7 +2,7 @@
     <div class="d-flex flex-row row-home">
         <div class="flex-fill">
                 <div class="row g-3 align-items-stretch row-menu">
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12" *ngFor="let produto of discos" (click)="navigateTo('detalhesproduto')" >
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12" *ngFor="let produto of discos" (click)="viewDetalheProduto(produto)" >
                         <app-produto-tile [data]="produto"></app-produto-tile>
                     </div>
                 </div>

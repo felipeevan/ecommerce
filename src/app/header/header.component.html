@@ -4,7 +4,7 @@
       <mat-icon>menu</mat-icon>
     </button>
     <span style="font-size: 20px;
-    line-height: 20px;">SMDiscos</span>
+    line-height: 20px;cursor: pointer;" (click)="navigateTo('')">SMDiscos</span>
     <span class="example-spacer ms-3 me-3" >
       <div class="input-group" *ngIf="!isAdmin">
         <span class="input-group-text" id="search-icon">
@@ -28,7 +28,7 @@
           <mat-icon>assignment_ind</mat-icon>
           <span>Sua conta</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="navigateTo('pedidos')">
           <mat-icon>list</mat-icon>
           <span>Pedidos</span>
         </button>
@@ -42,6 +42,14 @@
         </button>
       </span>  
       <span *ngIf="logado && isAdmin">
+        <button mat-menu-item (click)="navigateTo('dashboard')">
+          <mat-icon>dashboard</mat-icon>
+          <span>Dashboard</span>
+        </button>
+        <button mat-menu-item (click)="navigateTo('pedidosAdmin')">
+          <mat-icon>list</mat-icon>
+          <span>Pedidos</span>
+        </button>
         <button mat-menu-item (click)="deslogar()">
           <mat-icon>exit_to_app</mat-icon>
           <span>Sair</span>

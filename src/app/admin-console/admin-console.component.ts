@@ -31,6 +31,8 @@ export class AdminConsoleComponent implements OnInit {
     },
   ];
 
+  produtosForaDeEstoque: any = []
+
   categorias = []
 
   discos = []
@@ -75,6 +77,28 @@ export class AdminConsoleComponent implements OnInit {
     this.setListProdutos()
   }
 
+  setProdutosForaDeEstoque(){
+    let discosEmEstoque = 0;
+    let discosForaEstoque = 0;
+    this.discos.forEach(element => {
+      if(element['quantidade']>0){
+        discosEmEstoque++;
+      }else{
+        discosForaEstoque++
+      }
+    });
+    this.produtosForaDeEstoque = [
+      {
+        'name':'Em estoque',
+        "value": discosEmEstoque
+      },
+      {
+        'name':'Fora de estoque',
+        "value": discosForaEstoque
+      }
+    ]
+  }
+
   setListCategorias(){
     this.adminService.listarCategoria().toPromise().then(
       (response) => {
@@ -84,11 +108,15 @@ export class AdminConsoleComponent implements OnInit {
     )
   }
 
+
+  
   setListProdutos(){
     this.adminService.listarProduto().toPromise().then(
       (response) => {
         let data = JSON.parse(response.data);
         this.discos = data;
+
+        this.setProdutosForaDeEstoque()
       }
     )
   }

@@ -1,24 +1,33 @@
 <app-layout-default>
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-12">
-                <img class="rounded" src="{{produto?.foto??produto.foto!=''?produto.foto:'assets/noimage.jpg'}}" width="500px">
+        <div class="d-flex row">
+            <div class="col-md-6 col-sm-6">
+                <img class="rounded img-fluid" src="{{produto?.foto??produto.foto!=''?produto.foto:'assets/noimage.jpg'}}">
             </div>
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
-                      <h2>Golden Hour - Kacey Musgraves</h2>
-                      <h6 class="lead">código do produto aqui</h6>
+                      <h2>{{produto.nome}} - {{produto.autor}}</h2>
+                      <h6 class="lead">00000000{{produto.id}}</h6>
                       <mat-divider></mat-divider>
                       <h5 class="card-title">Formato: CD de áudio</h5>
                       <mat-icon class="ambar-icon">grade grade grade grade grade</mat-icon>
                     </div>
                     <div class="card-body">
-                        <h1>R$ 51,9</h1>
+                        <div>
+                            <p class="d-inline">R$</p>
+                            <strong><h1 class="d-inline display-3">{{produto.preco}}</h1></strong>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <span class="badge bg-primary">À vista</span>
+                            </div>
+                        </div><br>
+                        <br />
                         <mat-divider></mat-divider>
                         <div class="row">
-                            <h4>Descrição do produto:</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            <h2>Descrição do produto:</h2>
+                            <p>{{produto.descricao}}</p>
                         </div>
                         <mat-divider></mat-divider>
                         <div class="row">
@@ -32,12 +41,8 @@
                             <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
                         </div>                        
                         <div class="row justify-content-around">
-                            <div class="col-4">
-                                <button class="btn btn-primary " type="button">Comprar</button>
-                            </div>
-                            <div class="col-4">
-                                <button class="btn corz" type="button">Carrinho</button>
-                            </div>
+                            <button class="d-inline btn btn-primary " type="button">Comprar</button>
+                            <button class="d-inline btn corz" type="button">Carrinho</button>
                         </div>
                     </div>
                 </div>

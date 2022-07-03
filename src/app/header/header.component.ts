@@ -5,6 +5,7 @@ import { SessionService } from '../services/session.service';
 import { ConfirmDialogComponent } from '../tiles/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -14,13 +15,18 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class HeaderComponent implements OnInit {
   logado: boolean | undefined;
   isAdmin: boolean | undefined;
+  quantidadeCarrinho: any;
   
   constructor(private sidenav: SidenavService, private router: Router, public dialog: MatDialog,
-    private sessionService: SessionService, private snackBar: MatSnackBar) { }
+    private sessionService: SessionService, private snackBar: MatSnackBar, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.logado = this.sessionService.isLogged()
     this.isAdmin = this.sessionService.isAdmin()
+    this.cartService.getCarrinhoQuantity().subscribe(res =>{
+      this.quantidadeCarrinho = res
+    })
+    this.cartService.loadCarrinhoQuantity()
   }
 
   toggleRightSidenav() {

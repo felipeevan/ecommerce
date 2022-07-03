@@ -25,15 +25,15 @@ import { AuthAutorize } from './auth-autorize.service';
 import { AuthAdminGuard } from './auth-admin-guard.service';
 import { AuthClienteGuard } from './auth-cliente-guard.service';
 import { AuthAdminNegate } from './auth-admin-negate.service';
-import { DetalhesprodutoComponent } from './detalhesproduto/detalhesproduto.component';
 import { PedidosAdminModule } from './pedidosadmin/pedidosadmin.module';
 import { PedidosClienteModule } from './pedidoscliente/pedidoscliente.module';
+import { CartService } from './services/cart.service';
+import { DetalhesprodutoModule } from './detalhesproduto/detalhesproduto.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     PedidosComponent,
-    DetalhesprodutoComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +53,8 @@ import { PedidosClienteModule } from './pedidoscliente/pedidoscliente.module';
     MatIconModule,
     MatDividerModule,
     PedidosAdminModule,
-    PedidosClienteModule
+    PedidosClienteModule,
+    DetalhesprodutoModule
   ],
   providers: [
     CepApiService,
@@ -61,7 +62,8 @@ import { PedidosClienteModule } from './pedidoscliente/pedidoscliente.module';
     AuthAutorize,
     AuthClienteGuard,
     AuthAdminGuard,
-    AuthAdminNegate
+    AuthAdminNegate,
+    CartService
   ],
   bootstrap: [AppComponent],
 })

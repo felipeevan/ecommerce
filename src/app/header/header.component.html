@@ -18,7 +18,8 @@
       <mat-icon>person</mat-icon>
     </button>
     <button *ngIf="!isAdmin" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="toggleRightSidenav()">
-        <mat-icon matBadge="15" >shopping_cart</mat-icon>
+        <mat-icon *ngIf="!quantidadeCarrinho">shopping_cart</mat-icon>
+        <mat-icon *ngIf="quantidadeCarrinho" [matBadge]="quantidadeCarrinho">shopping_cart</mat-icon>
     </button>
     
     

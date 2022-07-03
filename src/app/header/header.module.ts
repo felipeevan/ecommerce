@@ -11,6 +11,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { CartService } from '../services/cart.service';
 
 @NgModule({
   declarations: [
@@ -29,5 +30,8 @@ import {MatInputModule} from '@angular/material/input';
   exports:[
       HeaderComponent
   ],
+  providers: [
+    CartService
+  ]
 })
 export class HeaderModule { }

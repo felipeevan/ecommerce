@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 import { map } from 'rxjs/operators';
+import { CartService } from '../services/cart.service';
 import { ClienteService } from '../services/cliente.service';
 
 @Component({
@@ -11,8 +12,10 @@ import { ClienteService } from '../services/cliente.service';
 export class DetalhesprodutoComponent implements OnInit {
 
   idProduto: any;
+  quantidade: any = 1;
   produto: any = {};
-  constructor(public route: ActivatedRoute, private router: Router, private clienteService: ClienteService) { }
+  constructor(public route: ActivatedRoute, private router: Router, private clienteService: ClienteService,
+    private cartService: CartService) { }
 
   ngOnInit(): void {
     this.route
@@ -33,4 +36,16 @@ export class DetalhesprodutoComponent implements OnInit {
     ).catch(_ => this.router.navigate(['']))
   }
 
+
+  addItemToCart(){
+    this.cartService.addItemToCart(this.idProduto, this.quantidade)
+  }
+
+  addQuantidade(){
+    this.quantidade++;
+  }
+
+  removeQuantidade(){
+    this.quantidade==1?this.quantidade:this.quantidade--
+  }
 }

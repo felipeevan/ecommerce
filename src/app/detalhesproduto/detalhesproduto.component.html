@@ -1,8 +1,9 @@
 <app-layout-default>
     <div class="container">
-        <div class="d-flex row">
-            <div class="col-md-6 col-sm-6">
-                <img class="rounded img-fluid" src="{{produto?.foto??produto.foto!=''?produto.foto:'assets/noimage.jpg'}}">
+        <div class="d-flex row g-3">
+            <div class="col-md-8">
+                <img class="rounded img-fluid"
+                style="width: 100%;" src="{{produto?.foto??produto.foto!=''?produto.foto:'assets/noimage.jpg'}}">
             </div>
             <div class="col-md-4">
                 <div class="card">
@@ -36,13 +37,18 @@
                             </div>
                         </div><br>
                         <div class="input-group mb-2">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                            <input type="text" class="form-control" placeholder="Quantidade" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1"
+                            (click)="removeQuantidade()">-</button>
+                            <input type="number" class="form-control quantidadeinput" [(ngModel)]="quantidade"
+                            placeholder="Quantidade" aria-label="Example text with button addon"
+                            aria-describedby="button-addon1">
+                            <button class="btn btn-outline-secondary" 
+                            (click)="addQuantidade()" type="button" id="button-addon2">+</button>
                         </div>                        
                         <div class="row justify-content-around">
-                            <button class="d-inline btn btn-primary " type="button">Comprar</button>
-                            <button class="d-inline btn corz" type="button">Carrinho</button>
+                            <button class="d-inline btn btn-primary" type="button">Comprar</button>
+                            <button class="d-inline btn corz" type="button"
+                            (click)="addItemToCart()">Carrinho</button>
                         </div>
                     </div>
                 </div>

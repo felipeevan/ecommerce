@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { DetalhesprodutoComponent } from './detalhesproduto.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
-
+import { CartService } from '../services/cart.service';
+import { FormsModule } from '@angular/forms';
+import { LayoutModule } from '../layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -11,9 +13,15 @@ import {MatDividerModule} from '@angular/material/divider';
   imports: [
     MatIconModule,
     MatDividerModule,
+    FormsModule,
+    LayoutModule,
+
   ],
   exports:[
     DetalhesprodutoComponent
   ],
+  providers:[
+    CartService
+  ]
 })
 export class DetalhesprodutoModule { }

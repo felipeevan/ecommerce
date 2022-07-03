@@ -1,26 +1,37 @@
-<div class="cart-tile d-flex flex-row">
-    <div class="cart-tile-img">
-        <img src="https://rockcontent.com/br/wp-content/uploads/sites/2/2018/01/Descri%C3%A7%C3%A3o-de-produto-no-e-commerce.png">
-    </div>
-    <div class="flex-grow-1 d-flex flex-column justify-content-between">
-        <div>
-            <b>2x</b> Balança Digital Cozinha Precisão 10kg Sf-400 Alimentos 8900
+<div class="cart-tile-comp">
+    <div class="cart-tile d-flex flex-row">
+        <div class="cart-tile-img">
+            <img [src]="data.foto">
         </div>
-        <div class="d-flex flex-row justify-content-between align-items-center">
-            <div class="button-quanti">
-                <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-                    <mat-icon>remove</mat-icon>
-                </button>
-                <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-                    <mat-icon>add</mat-icon>
-                </button>
+        <div class="flex-grow-1 d-flex flex-column justify-content-between">
+            <div class="titulo">
+                <b>{{data.quantidade_carrinho}}x</b> {{data.nome}}
             </div>
-
-            <div>
-                <span style="font-size: 18px;">
-                    R$ 20,00
+            <div style="text-align: end;">
+                <span style="font-size: 12px;">
+                    Preço unitário - {{data.preco | currency:'BRL'}}
                 </span>
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                    <div class="button-quanti">
+                        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
+                        (click)="remove()">
+                            <mat-icon *ngIf="data.quantidade_carrinho!=1">remove</mat-icon>
+                            <mat-icon *ngIf="data.quantidade_carrinho==1">delete</mat-icon>
+                        </button>
+                        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
+                        (click)="add()">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </div>
+        
+                    <div>
+                        <span style="font-size: 18px;">
+                            {{data.precototal | currency:'BRL'}}
+                        </span>
+                    </div>
+                </div>
             </div>
+            
         </div>
     </div>
 </div>

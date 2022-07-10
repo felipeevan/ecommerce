@@ -5,6 +5,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import { CartService } from '../services/cart.service';
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '../layout/layout.module';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { LayoutModule } from '../layout/layout.module';
     MatDividerModule,
     FormsModule,
     LayoutModule,
-
+    BrowserModule 
   ],
   exports:[
     DetalhesprodutoComponent

@@ -14,6 +14,7 @@ export class DetalhesprodutoComponent implements OnInit {
   idProduto: any;
   quantidade: any = 1;
   produto: any = {};
+  categorias = []
   constructor(public route: ActivatedRoute, private router: Router, private clienteService: ClienteService,
     private cartService: CartService) { }
 
@@ -32,6 +33,8 @@ export class DetalhesprodutoComponent implements OnInit {
       (response) => {
         let data = JSON.parse(response.data);
         this.produto = data;
+        this.produto['categorias'] = JSON.parse(this.produto['categorias'])
+        console.log(this.produto)
       }
     ).catch(_ => this.router.navigate(['']))
   }

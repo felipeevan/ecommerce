@@ -33,6 +33,19 @@ export class ClienteService {
         .pipe(retry(1), catchError(this.handleError));
     }
 
+    listarProdutoDaCategoria(id: any): Observable<any>{
+      let body = {
+        'id_categoria': id
+      }
+      return this.http.post(`/smdecommerce/ListarProdutosdaCategoria`, body)
+        .pipe(retry(1), catchError(this.handleError));
+    }
+
+    listarCategoria(): Observable<any>{
+      return this.http.get(`/smdecommerce/ListarCategoria`)
+        .pipe(retry(1), catchError(this.handleError));
+    }
+
     excluirCliente(): Observable<any>{
       return this.http.post(`/smdecommerce/ExcluirCliente`, {})
       .pipe(retry(1), catchError(this.handleError));

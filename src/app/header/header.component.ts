@@ -6,6 +6,7 @@ import { ConfirmDialogComponent } from '../tiles/confirm-dialog/confirm-dialog.c
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CartService } from '../services/cart.service';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'app-header',
@@ -16,9 +17,11 @@ export class HeaderComponent implements OnInit {
   logado: boolean | undefined;
   isAdmin: boolean | undefined;
   quantidadeCarrinho: any;
+  search: any;
   
   constructor(private sidenav: SidenavService, private router: Router, public dialog: MatDialog,
-    private sessionService: SessionService, private snackBar: MatSnackBar, private cartService: CartService) { }
+    private sessionService: SessionService, private snackBar: MatSnackBar, private cartService: CartService,
+    public searchService: SearchService) { }
 
   ngOnInit(): void {
     this.logado = this.sessionService.isLogged()
@@ -31,6 +34,10 @@ export class HeaderComponent implements OnInit {
 
   toggleRightSidenav() {
     this.sidenav.toggle();
+  }
+
+  searchByKey(){
+    this.searchService.searchNext(this.search)
   }
 
   toggleMenuSidenav() {
@@ -50,7 +57,9 @@ export class HeaderComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(async dialogResult => {
-      this.sessionService.deslogar()
+      if(dialogResult===true){
+        this.sessionService.deslogar()
+      }
     });
 
   }

@@ -1,7 +1,7 @@
 <div class="cart-tile-comp">
     <div class="cart-tile d-flex flex-row">
         <div class="cart-tile-img">
-            <img [src]="data.foto">
+            <img src="{{data?.foto??data.foto!=''?data.foto:'assets/noimage.jpg'}}">
         </div>
         <div class="flex-grow-1 d-flex flex-column justify-content-between">
             <div class="titulo">

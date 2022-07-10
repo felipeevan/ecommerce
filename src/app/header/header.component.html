@@ -10,7 +10,9 @@
         <span class="input-group-text" id="search-icon">
           <mat-icon>search</mat-icon>
         </span>
-        <input type="text" class="form-control" id="search-input">
+        <input type="text" class="form-control" [(ngModel)]="search" id="search-input"
+        placeholder="Digite sua pesquisa aqui"
+        (keyup.enter)="searchByKey()">
       </div>
     </span>
     <button mat-icon-button class="example-icon" 

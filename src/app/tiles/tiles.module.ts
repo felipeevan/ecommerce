@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import { TwoDigitDecimaNumberDirective } from './produto-dialog/float.directive';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { TwoDigitDecimaNumberDirective } from './produto-dialog/float.directive'
     MatInputModule,
     ReactiveFormsModule,
     TextFieldModule,
+    MatSelectModule
   ],
   exports:[
     CartTileComponent,

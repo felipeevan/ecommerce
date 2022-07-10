@@ -12,11 +12,12 @@ import { AuthAdminNegate } from './auth-admin-negate.service';
 import { DetalhesprodutoComponent } from './detalhesproduto/detalhesproduto.component';
 import { PedidosadminComponent } from './pedidosadmin/pedidosadmin.component';
 import { PedidosclienteComponent } from './pedidoscliente/pedidoscliente.component';
+import { SpecificCategoriaComponent } from './home/specific-categoria/specific-categoria.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent , canActivate:[AuthAdminNegate]},
+  { path: 'home', component: HomeComponent, canActivate:[AuthAdminNegate]},
   { path: 'auth', component: AuthComponent, canActivate:[AuthAutorize]},
   { path: 'login-admin', component: AdminloginComponent, canActivate:[AuthAutorize]},
   { path: 'dashboard', component: AdminConsoleComponent, canActivate: [AuthAdminGuard]},
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'detalhesproduto', component: DetalhesprodutoComponent, canActivate: [AuthAdminNegate]},
   { path: 'pedidosAdmin', component: PedidosadminComponent, canActivate: [AuthAdminGuard]},
   { path: 'pedidos', component: PedidosclienteComponent, canActivate: [AuthClienteGuard]},
+  { path: 'home/:id', component: SpecificCategoriaComponent, canActivate:[AuthAdminNegate] },
 
   { path: '**', redirectTo: 'home'}, 
   //{ path: 'login', component: LoginComponent },

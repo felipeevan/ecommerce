@@ -22,6 +22,7 @@ export class ProdutoDialogComponent implements OnInit {
     nome: new FormControl('', [Validators.required]),
     autor: new FormControl('', [Validators.required]),
     descricao: new FormControl('', [Validators.required]),
+    categorias: new FormControl('', Validators.required),
     preco: new FormControl('', [Validators.required]),
     quantidade: new FormControl('', [Validators.required]),
   }, 
@@ -29,6 +30,7 @@ export class ProdutoDialogComponent implements OnInit {
   )
   srcResult: any;
   nomeArquivo = "Selecione uma foto para o produto"
+  categorias: any;
 
   constructor(public dialogRef: MatDialogRef<ProdutoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, private adminService: AdminService,
@@ -51,6 +53,13 @@ export class ProdutoDialogComponent implements OnInit {
         this.nomeArquivo = "Clique para mudar o arquivo"
       }
     }
+
+    this.adminService.listarCategoria().toPromise().then(
+      (response) => {
+        let data = JSON.parse(response.data);
+        this.categorias = data;
+      }
+    )
   }
 
   salvar(){
@@ -64,6 +73,7 @@ export class ProdutoDialogComponent implements OnInit {
           'preco': this.produtoForm.controls['preco'].value,
           'quantidade': this.produtoForm.controls['quantidade'].value,
           'foto': this.srcResult??""
+          
         }
 
         this.adminService.editProduto(body).toPromise().then(
@@ -83,13 +93,15 @@ export class ProdutoDialogComponent implements OnInit {
         )
       }
       else{
+        let categorias: any[] = this.produtoForm.controls['categorias'].value
         let body = {
           'nome': this.produtoForm.controls['nome'].value,
           'autor': this.produtoForm.controls['autor'].value,
           'descricao': this.produtoForm.controls['descricao'].value,
           'preco': this.produtoForm.controls['preco'].value,
           'quantidade': this.produtoForm.controls['quantidade'].value,
-          'foto': this.srcResult??""
+          'foto': this.srcResult??"",
+          'categorias': categorias.join(',')
         }
 
         this.adminService.novoProduto(body).toPromise().then(

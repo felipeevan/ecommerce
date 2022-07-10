@@ -12,6 +12,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { CartService } from '../services/cart.service';
+import { SearchService } from '../services/search.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,13 +27,15 @@ import { CartService } from '../services/cart.service';
     MatMenuModule,
     MatBadgeModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
   ],
   exports:[
       HeaderComponent
   ],
   providers: [
-    CartService
+    CartService,
+    SearchService
   ]
 })
 export class HeaderModule { }

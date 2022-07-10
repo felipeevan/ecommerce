@@ -107,15 +107,13 @@ export class AdminConsoleComponent implements OnInit {
       }
     )
   }
-
-
   
   setListProdutos(){
     this.adminService.listarProduto().toPromise().then(
       (response) => {
         let data = JSON.parse(response.data);
         this.discos = data;
-
+        console.log(data)
         this.setProdutosForaDeEstoque()
       }
     )

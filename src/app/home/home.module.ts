@@ -8,11 +8,16 @@ import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatChipsModule} from '@angular/material/chips';
+import { SpecificCategoriaComponent } from './specific-categoria/specific-categoria.component';
+import { SearchService } from '../services/search.service';
+import { MatIconModule } from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    SpecificCategoriaComponent
   ],
   imports: [
     CommonModule,
@@ -22,9 +27,14 @@ import {MatChipsModule} from '@angular/material/chips';
     MatExpansionModule,
     MatChipsModule,
     TilesModule,
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   exports:[
-    HomeComponent
+    HomeComponent,
   ],
+  providers:[
+    SearchService
+  ]
 })
 export class HomeModule { }

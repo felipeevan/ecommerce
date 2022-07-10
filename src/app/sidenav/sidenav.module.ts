@@ -12,6 +12,7 @@ import { MenuDrawerComponent } from './menu-drawer/menu-drawer.component';
 import {MatListModule} from '@angular/material/list';
 import {MatRippleModule} from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
+import { ClienteService } from '../services/cliente.service';
 
 
 @NgModule({
@@ -32,6 +33,6 @@ import {MatIconModule} from '@angular/material/icon';
   exports:[
     SidenavComponent
   ],
-  providers: [SidenavService]
+  providers: [SidenavService, ClienteService]
 })
 export class SidenavModule { }

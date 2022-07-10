@@ -28,6 +28,16 @@
                     <mat-error>Preencha o campo</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
+                    <mat-label>Categorias</mat-label>
+                    <mat-select formControlName="categorias" name="categorias" multiple>
+                        <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
+                            {{categoria.descricao}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-icon matSuffix>category</mat-icon>
+                    <mat-error>Preencha o campo</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
                     <mat-label>Preço</mat-label>
                     <input matInput appTwoDigitDecimaNumber
                     formControlName="preco" name="preco" required >

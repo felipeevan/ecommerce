@@ -32,8 +32,9 @@
                         </div>
                         <mat-divider></mat-divider>
                         <div class="row">
-                            <div class="col-4">
-                                <span class="badge bg-success">Em estoque</span>
+                            <div>
+                                <div class="badge bg-success" style="margin: 5px;" *ngFor="let cat of produto.categorias"
+                                >{{cat.descricao}}</div>
                             </div>
                         </div><br>
                         <div class="input-group mb-2">
@@ -46,7 +47,7 @@
                             (click)="addQuantidade()" type="button" id="button-addon2">+</button>
                         </div>                        
                         <div class="row justify-content-around">
-                            <button class="d-inline btn btn-primary" type="button">Comprar</button>
+                            <!-- <button class="d-inline btn btn-primary" type="button">Comprar</button> -->
                             <button class="d-inline btn corz" type="button"
                             (click)="addItemToCart()">Carrinho</button>
                         </div>

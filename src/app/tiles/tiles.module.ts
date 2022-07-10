@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import { TwoDigitDecimaNumberDirective } from './produto-dialog/float.directive';
 import {MatSelectModule} from '@angular/material/select';
+import { CompraTileComponent } from './compra-tile/compra-tile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {MatSelectModule} from '@angular/material/select';
     ProdutoDialogComponent,
     ProdutoTileComponent,
     CategoriaDialogComponent,
-    TwoDigitDecimaNumberDirective
+    TwoDigitDecimaNumberDirective,
+    CompraTileComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,8 @@ import {MatSelectModule} from '@angular/material/select';
   ],
   exports:[
     CartTileComponent,
-    ProdutoTileComponent
+    ProdutoTileComponent,
+    CompraTileComponent,
   ],
 })
 export class TilesModule { }

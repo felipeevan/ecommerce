@@ -18,11 +18,11 @@ export class CartService {
         }else{
             cart = JSON.parse(cart)
         }
-
         let cartFiltred: any[] = cart
-        cartFiltred.filter((obj: any) =>{
+        cartFiltred = cartFiltred.filter((obj: any) =>{
             return obj['id'] == id
         })
+
         if(cartFiltred.length!=0){
             let cartUpdate: any[] = cart;
             let updateItem: any = cartFiltred[0]
@@ -80,7 +80,7 @@ export class CartService {
         return this.carrinhoQuantityObservable.asObservable()
     }
 
-    loadCarrinho(){
+    async loadCarrinho(){
         let carrinho: any[] = []
         let cart: any = localStorage.getItem('cart')
         if(cart==null){
@@ -88,7 +88,8 @@ export class CartService {
         }else{
             cart = JSON.parse(cart)
         }
-        cart.forEach((element: any) => {
+        let realCart = cart
+        await  cart.forEach((element: any, index: any) => {
             this.http.post(`/smdecommerce/ObterProduto`, {"id": element['id']}).toPromise().then((res: any) =>{
                 let data = JSON.parse(res.data);
                 data = {
@@ -97,12 +98,16 @@ export class CartService {
                     'quantidade_carrinho': element['q']
                 }
                 carrinho.push(data)
+                realCart[index]=data
             })
         });
-        
-        this.carrinhoObservable.next(carrinho)
+        //this.carrinhoObservable.next(carrinho)
+        this.loadCarrinhoA(realCart);
     }
 
+    loadCarrinhoA(res:any){
+        this.carrinhoObservable.next(res)
+    }
 
     loadCarrinhoQuantity(){
         let cart: any = localStorage.getItem('cart')

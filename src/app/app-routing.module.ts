@@ -13,6 +13,7 @@ import { DetalhesprodutoComponent } from './detalhesproduto/detalhesproduto.comp
 import { PedidosadminComponent } from './pedidosadmin/pedidosadmin.component';
 import { PedidosclienteComponent } from './pedidoscliente/pedidoscliente.component';
 import { SpecificCategoriaComponent } from './home/specific-categoria/specific-categoria.component';
+import { FinalizarcompraComponent } from './finalizarcompra/finalizarcompra.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'pedidosAdmin', component: PedidosadminComponent, canActivate: [AuthAdminGuard]},
   { path: 'pedidos', component: PedidosclienteComponent, canActivate: [AuthClienteGuard]},
   { path: 'home/:id', component: SpecificCategoriaComponent, canActivate:[AuthAdminNegate] },
-
+  { path: 'finalizarCompra', component: FinalizarcompraComponent, canActivate:[AuthAdminNegate] },
+  
   { path: '**', redirectTo: 'home'}, 
   //{ path: 'login', component: LoginComponent },
 ];

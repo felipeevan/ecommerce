@@ -21,5 +21,6 @@ export class SidenavDrawerComponent implements OnInit {
   }
 
   irAoPagamento(){
+    this.router.navigate(['finalizarCompra']);
   }
 }

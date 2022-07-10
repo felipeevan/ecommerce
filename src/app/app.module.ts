@@ -15,7 +15,6 @@ import { SidenavModule } from './sidenav/sidenav.module';
 import { TilesModule } from './tiles/tiles.module';
 import { LayoutModule } from './layout/layout.module';
 import { AuthModule } from './auth/auth.module';
-import { PedidosComponent } from './pedidos/pedidos.component';
 import { AdminConsoleModule } from './admin-console/admin-console.module';
 import {MatChipsModule} from '@angular/material/chips';
 import { UserConfigModule } from './userconfig/userconfig.module';
@@ -29,11 +28,11 @@ import { PedidosAdminModule } from './pedidosadmin/pedidosadmin.module';
 import { PedidosClienteModule } from './pedidoscliente/pedidoscliente.module';
 import { CartService } from './services/cart.service';
 import { DetalhesprodutoModule } from './detalhesproduto/detalhesproduto.module';
+import { FinalizarCompraModule } from './finalizarcompra/finalizarcompra.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PedidosComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +53,8 @@ import { DetalhesprodutoModule } from './detalhesproduto/detalhesproduto.module'
     MatDividerModule,
     PedidosAdminModule,
     PedidosClienteModule,
-    DetalhesprodutoModule
+    DetalhesprodutoModule,
+    FinalizarCompraModule
   ],
   providers: [
     CepApiService,

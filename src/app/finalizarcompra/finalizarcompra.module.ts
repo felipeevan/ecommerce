@@ -12,6 +12,7 @@ import { FinalizarcompraComponent } from "./finalizarcompra.component";
 import { LayoutModule } from '../layout/layout.module';
 import { MatButtonModule } from "@angular/material/button";
 
+
 @NgModule({
   declarations: [
     FinalizarcompraComponent
@@ -26,7 +27,7 @@ import { MatButtonModule } from "@angular/material/button";
     TilesModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   exports:[
     FinalizarcompraComponent

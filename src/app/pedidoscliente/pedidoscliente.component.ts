@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClienteService } from '../services/cliente.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-pedidoscliente',
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pedidoscliente.component.scss']
 })
 export class PedidosclienteComponent implements OnInit {
+
+  constructor(private router: Router, private clienteService: ClienteService) { }
+
   statuss = ["Pagamento: Crédito", "Status Pagamento: ", "Entrega: Física", "Status Entrega: "]
   pedidos: any | undefined = [
     {}, {}
@@ -30,8 +35,6 @@ export class PedidosclienteComponent implements OnInit {
   ]
 
   displayedColumns = this.columns.map(c => c.name);
-
-  constructor() { }
 
   ngOnInit(): void {
   }

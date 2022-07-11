@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 
+
 @Component({
   selector: 'app-finalizarcompra',
   templateUrl: './finalizarcompra.component.html',
